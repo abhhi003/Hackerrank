@@ -1,0 +1,37 @@
+import java.util.*;
+class Solution
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> s = new ArrayList<Integer>();
+        int n = sc.nextInt();
+        for (int i=0;i<n;i++)
+        {
+            s.add(sc.nextInt());
+        }        
+        int d = sc.nextInt();
+        int m = sc.nextInt();
+        
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+            if (i + m - 1 < n)
+            {
+                int sum = 0;
+                for(int j=i;j <= i + m - 1;j++)
+                {
+                    sum=sum+s.get(j);
+                } 
+                if (sum==d)
+                {
+                    count++;
+                }
+            }
+        
+        }
+        
+        System.out.println(count);
+    }
+}
+
