@@ -1,2 +1,2 @@
-# Hackerrank-
+# Hackerrank
 Hackerrank Java Solutions
