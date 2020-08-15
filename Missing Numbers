@@ -1,0 +1,47 @@
+import java.util.*;
+ 
+public class Solution{
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] a = new int[n];
+        for(int i=0;i<n;i++){
+            a[i] = in.nextInt();
+        }
+        int m = in.nextInt();
+        int[] b = new int[m];
+        for(int i=0;i<m;i++){
+            b[i] = in.nextInt();
+        }
+        HashMap<Integer,Integer> h_a = new HashMap<Integer,Integer>();
+        HashMap<Integer,Integer> h_b = new HashMap<Integer,Integer>();
+        for(int i:a){
+            if(h_a.containsKey(i)){
+                h_a.put(i,h_a.get(i)+1);
+            }
+            else{
+                h_a.put(i,1);
+            }
+        }
+        for(int j:b){
+            if(h_b.containsKey(j)){
+                h_b.put(j,h_b.get(j)+1);
+            }
+            else{
+                h_b.put(j,1);
+            }
+        }
+        ArrayList<Integer> diff = new ArrayList<Integer>();
+        for(Integer i:h_b.keySet()){
+            if(h_a.get(i)==null || h_a.get(i)<h_b.get(i)){
+                diff.add(i);
+            }
+        }
+        Integer[] result = new Integer[diff.size()];
+        diff.toArray(result);
+        Arrays.sort(result);
+        for(int i:result){
+            System.out.print(i+" ");
+        }
+    }
+}
